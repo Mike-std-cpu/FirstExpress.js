@@ -8,6 +8,11 @@ app.get('/', (req, res) => {
 })
 //Request = Peticion & Respond = Responder
 
+//NUEVA RUTA | localhost:3000/launchx
+app.get('/launchx', (req, res) =>{
+    res.send("Bienvenidos a LaunchX 🌚")
+})
+
 app.listen(port, () =>{ // Aqui se inicializa la app
     console.log(`Server listo: ${port}`);
 })

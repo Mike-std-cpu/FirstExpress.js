@@ -13,6 +13,13 @@ app.get('/launchx', (req, res) =>{
     res.send("Bienvenidos a LaunchX 🌚")
 })
 
+//Nueva ruta | localhost:3000/node
+app.get('/node', (req, res) => {
+    //Interaccion conobjetos y node con express
+    const explorer = {id:1, name: "Miguel Andrade"}
+    res.send(explorer);
+})
+
 app.listen(port, () =>{ // Aqui se inicializa la app
     console.log(`Server listo: ${port}`);
 })

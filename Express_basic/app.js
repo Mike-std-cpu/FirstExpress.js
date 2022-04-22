@@ -20,6 +20,15 @@ app.get('/node', (req, res) => {
     res.send(explorer);
 })
 
+//Nueva ruta | localhost:3000/explorers/:explorer
+app.get('/explorers/:explorer', (req, res) => {
+    //Interaccion conobjetos y node con express
+    res.send(req.params);
+    // params contiene los Query Params (parámetros) enviados por la url.
+    // En el ejemplo: explorers/:explorer | En el navegador: explorers/Miguel
+    //Va obtener el parametro de la url Miguel y la plasmara en la web.
+})
+
 app.listen(port, () =>{ // Aqui se inicializa la app
     console.log(`Server listo: ${port}`);
 })

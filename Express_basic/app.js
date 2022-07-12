@@ -35,7 +35,7 @@ app.get('/explorers/:explorer', (req, res) => {
 //ENDPOING
 /*
   * routes.
-  * Methods HTTP: GET (Regresar info) | POST | PUT | DELETE
+  * Methods HTTP: GET (Regresar info) | POST (insertar info) | PUT (Actualizar info) | DELETE
 */
 app.get('/v1/explorers', (req,res) => { // endPoint
     console.log(`GET explorers V1 API ${new Date()}`);
@@ -62,6 +62,23 @@ app.post('/v1/explorers',(req,res) => {
     // Agregar logica para presisistir
     console.log(req.body) //parametros del request
     res.status(201).json({message: "Creado exitosamente 🙂"});
+})
+// PUT
+app.put('/v1/explorers/:id', (req, res) => {
+    console.log(`PUT Explorers V1 API ${new Date()}`);
+    //Agregar logica para actualzar
+    console.log(req.body); // Parametros para actualzar
+    console.log(req.params.id); // quierry params
+    res.status(200).json({message: "Actualizado exitosamente"});
+})
+
+//DELETE
+app.delete('/v1/explorers/:id', (req, res) => {
+    console.log(`DELETE Explorers V1 API ${new Date()}`);
+    //Agregar logica para actualzar
+    console.log(req.body); // Parametros para actualzar
+    console.log(req.params.id); // quierry params
+    res.status(200).json({message: "Se elimino exitosamente"});
 })
 
 app.listen(port, () =>{ // Aqui se inicializa la app

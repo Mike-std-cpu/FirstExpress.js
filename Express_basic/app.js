@@ -30,6 +30,20 @@ app.get('/explorers/:explorer', (req, res) => {
     // params contiene los Query Params (parámetros) enviados por la url.
     // En el ejemplo: explorers/:explorer | En el navegador: explorers/Miguel
     //Va obtener el parametro de la url Miguel y la plasmara en la web.
+    // http://localhost:3000/explorers/Miguel
+})
+
+//routes
+// Methods HTTP: GET | POST | PUT | DELETE
+app.get('/v1/explorers', (req,res) => { // endPoint
+    console.log(`GET explorers V1 API ${Date()}`);
+    const explorer = {id:1, name: "Miguel Andrade"}
+    const explorer2 = {id:2, name: "Sarai Karina"};
+    const explorer3 = {id: 3, name: "Cristhian Martinez"};
+    const explorers = [explorer,explorer2,explorer3];
+
+    //Respuesta con API
+    res.status(200).json(explorers);
 })
 
 app.listen(port, () =>{ // Aqui se inicializa la app

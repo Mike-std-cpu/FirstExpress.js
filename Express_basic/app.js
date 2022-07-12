@@ -4,7 +4,7 @@ const port = 3000 // Puerto localhost:3000
 
 //localhost:3000
 app.get('/', (req, res) => {
-    res.send("Hola a todos! 🙂🙂")
+    res.send("Hola a todos! 🙂🙂");
 })
 //Request = Peticion & Respond = Responder
 
@@ -32,11 +32,13 @@ app.get('/explorers/:explorer', (req, res) => {
     //Va obtener el parametro de la url Miguel y la plasmara en la web.
     // http://localhost:3000/explorers/Miguel
 })
-
-//routes
-// Methods HTTP: GET | POST | PUT | DELETE
+//ENDPOING
+/*
+  * routes.
+  * Methods HTTP: GET (Regresar info) | POST | PUT | DELETE
+*/
 app.get('/v1/explorers', (req,res) => { // endPoint
-    console.log(`GET explorers V1 API ${Date()}`);
+    console.log(`GET explorers V1 API ${new Date()}`);
     const explorer = {id:1, name: "Miguel Andrade"}
     const explorer2 = {id:2, name: "Sarai Karina"};
     const explorer3 = {id: 3, name: "Cristhian Martinez"};
@@ -44,6 +46,22 @@ app.get('/v1/explorers', (req,res) => { // endPoint
 
     //Respuesta con API
     res.status(200).json(explorers);
+})
+
+app.get('/v1/explorers/:id', (req,res) => { // endPoint
+    console.log(`GET BY ID Explorers V1 API ${new Date()}`)
+    const explorer1 = {id:1, name: "Miguel Andrade"}
+
+    //Respuesta con API
+    res.status(200).json(explorer1);
+})
+
+// POST
+app.post('/v1/explorers',(req,res) => {
+    console.log(`POST Explorers V1 API ${new Date()}`);
+    // Agregar logica para presisistir
+    console.log(req.body) //parametros del request
+    res.status(201).json({message: "Creado exitosamente 🙂"});
 })
 
 app.listen(port, () =>{ // Aqui se inicializa la app

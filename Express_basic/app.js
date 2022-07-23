@@ -66,8 +66,10 @@ app.post('/v1/explorers',(req,res) => {
 // PUT
 app.put('/v1/explorers/:id', (req, res) => {
     console.log(`PUT Explorers V1 API ${new Date()}`);
+    console.log(`Update explorer con id ${req.params.id}`);
     //Agregar logica para actualzar
-    console.log(req.body); // Parametros para actualzar
+    // console.log(req.body); // Parametros para actualzar
+    const requestBody = req.body // Parametros del cliente
     console.log(req.params.id); // quierry params
     res.status(200).json({message: "Actualizado exitosamente"});
 })
